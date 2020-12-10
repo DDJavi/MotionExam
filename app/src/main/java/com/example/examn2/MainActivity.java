@@ -7,12 +7,14 @@ import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
     private ImageView sun;
@@ -25,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     private int sun2 = Color.parseColor("#F5CFBE");
     private int sun3 = Color.parseColor("#F53E2E");
     private int sun4 = Color.parseColor("#000F40");
+    private Toolbar toolbar;
+    private ImageView sunButton;
+    private ImageView moonButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +37,15 @@ public class MainActivity extends AppCompatActivity {
         animatorSet = new AnimatorSet();
         sun = findViewById(R.id.sun);
         sky = findViewById(R.id.sky);
+        toolbar = findViewById(R.id.my_toolbar);
+        moonButton = toolbar.findViewById(R.id.moonButton);
+        sunButton = toolbar.findViewById(R.id.sunButton);
+
+        moonButton.setOnClickListener(v -> {
+            Intent intent = new Intent (this, second.class);
+            startActivity(intent);
+        });
+
         sky.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){ animate();
