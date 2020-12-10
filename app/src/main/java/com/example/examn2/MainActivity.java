@@ -49,7 +49,5 @@ public class MainActivity extends AppCompatActivity {
         backgroundColor.addUpdateListener(animation -> sky.setBackgroundColor((Integer) backgroundColor.getAnimatedValue()));
         Y2.play(backgroundColor);
         Y2.start();
-
-
     }
 }
